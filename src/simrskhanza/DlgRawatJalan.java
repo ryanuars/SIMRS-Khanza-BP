@@ -5301,37 +5301,6 @@ menuEvaluasiPRB.addActionListener(new java.awt.event.ActionListener() {
         }
     }//GEN-LAST:event_TNoRwKeyPressed
 
-    // Method helper untuk mengambil data tensi dari database
-private String getDataTensiFromDatabase(String noRawat) {
-    String tensi = "-";
-    Connection koneksi = koneksiDB.condb();
-
-    try {
-        // Query untuk mengambil data tensi terbaru berdasarkan no_rawat
-        String sql = "SELECT tensi FROM pemeriksaan_ralan WHERE no_rawat=? ORDER BY tgl_perawatan DESC, jam_rawat DESC LIMIT 1";
-        PreparedStatement ps = koneksi.prepareStatement(sql);
-        ps.setString(1, noRawat);
-        ResultSet rs = ps.executeQuery();
-
-        if (rs.next()) {
-            String result = rs.getString("tensi");
-            if (result != null && !result.trim().isEmpty() && !result.equals("-")) {
-                tensi = result.trim();
-                System.out.println("Data tensi berhasil diambil dari database: " + tensi);
-            }
-        }
-
-        rs.close();
-        ps.close();
-    } catch (SQLException e) {
-        System.out.println("Error mengambil data tensi dari database: " + e.getMessage());
-    } catch (Exception e) {
-        System.out.println("General error mengambil data tensi: " + e.getMessage());
-    }
-
-    return tensi;
-}
-
     private void BtnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSimpanActionPerformed
         if(TNoRw.getText().trim().equals("")||TPasien.getText().trim().equals("")){
             Valid.textKosong(TNoRw,"No.Rawat");

@@ -741,20 +741,6 @@ jLabel4.setBounds(405, 10, 90, 23);
         FormInput.add(lblTensi);
         lblTensi.setBounds(503, 40, 100, 23);
 
-        jLabel14 = new widget.Label();
-    jLabel14.setText("Keterangan :");
-    jLabel14.setName("jLabel14");
-    FormInput.add(jLabel14);
-    jLabel14.setBounds(0, 440, 80, 23);
-
-    txtKeterangan = new widget.TextArea();
-    txtKeterangan.setColumns(20);
-    txtKeterangan.setRows(3);
-    txtKeterangan.setName("txtKeterangan");
-    javax.swing.JScrollPane scrollKeterangan = new javax.swing.JScrollPane(txtKeterangan);
-    FormInput.add(scrollKeterangan);
-    scrollKeterangan.setBounds(83, 440, 655, 25);
-
     // Update FormInput preferred size:
     FormInput.setPreferredSize(new java.awt.Dimension(440, 520)); // Increase height
     
@@ -804,44 +790,85 @@ jLabel4.setBounds(405, 10, 90, 23);
         FormInput.add(ScrollICD);
         ScrollICD.setBounds(320, 70, 400, 120);
 
-        jLabel8.setText("Kriteria Klinis :");
-        jLabel8.setName("jLabel8");
-        FormInput.add(jLabel8);
-        jLabel8.setBounds(0, 200, 80, 23);
+        
+jLabel8.setText("Kriteria Klinis :");
+jLabel8.setName("jLabel8");
+jLabel8.setFont(new java.awt.Font("Tahoma", 0, 11));
+FormInput.add(jLabel8);
+jLabel8.setBounds(0, 200, 80, 23); // Ubah width jadi 100 saja
 
-        scrollKriteria.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)));
-        scrollKriteria.setName("scrollKriteria");
+// Label88 di samping jLabel8
+jLabel88 = new widget.Label(); // Pastikan diinisialisasi
+jLabel88.setText("Berdasarkan Organisasi Profesi (IDI dan Perhimpunan Terkait) tentang Kriteria Stabil 9 Kasus Pasien Rujuk Balik (PRB)");
+jLabel88.setName("jLabel88");
+jLabel88.setFont(new java.awt.Font("Tahoma", 0, 11));
+jLabel88.setForeground(new java.awt.Color(102, 102, 102)); // Warna abu-abu
+jLabel88.setHorizontalAlignment(javax.swing.SwingConstants.LEFT); // Rata kiri
+FormInput.add(jLabel88);
+jLabel88.setBounds(90, 200, 600, 23); // Mulai dari X=105 (setelah jLabel8)
 
-        panelKriteria.setName("panelKriteria");
-        panelKriteria.setLayout(new javax.swing.BoxLayout(panelKriteria, javax.swing.BoxLayout.Y_AXIS));
-        scrollKriteria.setViewportView(panelKriteria);
+// Scroll kriteria dipindah ke bawah
+scrollKriteria.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)));
+scrollKriteria.setName("scrollKriteria");
+scrollKriteria.setBackground(new java.awt.Color(255, 255, 255)); // Background putih
+panelKriteria.setName("panelKriteria");
+panelKriteria.setLayout(new javax.swing.BoxLayout(panelKriteria, javax.swing.BoxLayout.Y_AXIS));
+panelKriteria.setBackground(new java.awt.Color(255, 255, 255)); // Background panel putih
+scrollKriteria.setViewportView(panelKriteria);
+FormInput.add(scrollKriteria);
+scrollKriteria.setBounds(10, 230, 710, 175); // Pindah ke Y=245, tinggi jadi 160
 
-        FormInput.add(scrollKriteria);
-        scrollKriteria.setBounds(83, 200, 655, 200);
+// Pindahkan elemen di bawahnya
+jLabel9.setText("Persentase :");
+jLabel9.setName("jLabel9");
+FormInput.add(jLabel9);
+jLabel9.setBounds(0, 415, 80, 23); // Pindah ke Y=415
 
-        jLabel9.setText("Persentase :");
-        jLabel9.setName("jLabel9");
-        FormInput.add(jLabel9);
-        jLabel9.setBounds(0, 410, 80, 23);
 
         lblPersentase.setFont(new java.awt.Font("Tahoma", 1, 12));
         lblPersentase.setForeground(new java.awt.Color(0, 102, 51));
         lblPersentase.setText("0%");
         lblPersentase.setName("lblPersentase");
         FormInput.add(lblPersentase);
-        lblPersentase.setBounds(83, 410, 100, 23);
+lblPersentase.setBounds(83, 415, 55, 23); // Pindah ke Y=415
 
-        jLabel10.setText("Kesimpulan :");
-        jLabel10.setName("jLabel10");
-        FormInput.add(jLabel10);
-        jLabel10.setBounds(200, 410, 80, 23);
+jLabel10.setText("Kesimpulan :");
+jLabel10.setName("jLabel10");
+FormInput.add(jLabel10);
+jLabel10.setBounds(200, 415, 80, 23); // Pindah ke Y=415
 
         lblKesimpulan.setFont(new java.awt.Font("Tahoma", 1, 12));
         lblKesimpulan.setForeground(new java.awt.Color(204, 0, 0));
         lblKesimpulan.setText("Tidak Potensi PRB");
         lblKesimpulan.setName("lblKesimpulan");
         FormInput.add(lblKesimpulan);
-        lblKesimpulan.setBounds(283, 410, 200, 23);
+lblKesimpulan.setBounds(283, 415, 120, 23); // Pindah ke Y=415
+
+// Keterangan juga pindah ke bawah
+
+jLabel14 = new widget.Label();
+jLabel14.setText("Keterangan :");
+jLabel14.setName("jLabel14");
+FormInput.add(jLabel14);
+jLabel14.setBounds(0, 445, 80, 23);
+
+txtKeterangan = new widget.TextArea();
+txtKeterangan.setColumns(20);
+txtKeterangan.setRows(3);
+txtKeterangan.setName("txtKeterangan");
+txtKeterangan.setBackground(new java.awt.Color(255, 255, 255)); // Background putih
+txtKeterangan.setOpaque(true); // Pastikan background terlihat
+
+javax.swing.JScrollPane scrollKeterangan = new javax.swing.JScrollPane(txtKeterangan);
+scrollKeterangan.setBackground(new java.awt.Color(255, 255, 255)); // Background scroll putih
+scrollKeterangan.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200))); // Border abu-abu muda
+scrollKeterangan.getViewport().setBackground(new java.awt.Color(255, 255, 255)); // Viewport background putih
+FormInput.add(scrollKeterangan);
+scrollKeterangan.setBounds(83, 445, 637, 25);
+   
+
+
+
 
         PanelInput.add(FormInput, java.awt.BorderLayout.CENTER);
 
@@ -1083,6 +1110,7 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {
     // Variables declaration - do not modify
     private widget.TextArea txtKeterangan; // Add this line
     private widget.Label jLabel14; // Add this line
+    private widget.Label jLabel88; // Add this line
     private widget.Button BtnAll;
     private widget.Button BtnBatal;
     private widget.Button BtnCari;
@@ -2141,8 +2169,8 @@ private boolean validateBeforeShowingDialog() {
 // Method handleSuratKontrolChoice yang diperbaiki
 private void handleSuratKontrolChoice() {
     String keterangan = JOptionPane.showInputDialog(this,
-        "Masukkan keterangan untuk surat kontrol:",
-        "Keterangan Surat Kontrol",
+        "Mohon isi indikasi klinis yang menjadi dasar pemberian Surat Kontrol.",
+        "Keterangan",
         JOptionPane.PLAIN_MESSAGE);
     
     if (keterangan != null && !keterangan.trim().isEmpty()) {
